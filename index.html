@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extrovert • Introvert – Spektrum</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================ -->
+  <!-- BILD 1 – Logo, Pfeil, Texte -->
+  <!-- ============================ -->
+  <section id="intro">
+    <!-- Buntes Logo (wie Bild 1) -->
+    <img class="logo" src="logo.svg" alt="EXTROVERT INTROVERT – buntes Logo" />
+
+    <!-- Senkrechter Pfeil -->
+    <div class="down-arrow" aria-hidden="true"></div>
+
+    <!-- Text unter Logo -->
+    <p class="subcopy">
+      Most of us think we know—but reality is more nuanced than a simple label
+    </p>
+    <div class="its-spectrum">It’s a spectrum!</div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- BILD 2 – Skala mit Figuren  -->
+  <!-- ============================ -->
+  <section id="spectrum">
+    <div class="frame">
+      <img id="spectrum-bar" class="bar" src="Balken.svg" alt="Spektrum-Balken" />
+      <img id="icon-stehen" class="icon" src="stehen.svg" alt="Icon Stehen" />
+      <img id="icon-laufen" class="icon" src="laufen.svg" alt="Icon Laufen" />
+    </div>
+    <div class="labels">
+      <span>EXTROVERT</span>
+      <span>AMBIVERT</span>
+      <span>INTROVERTS</span>
+    </div>
+  </section>
+
+  <!-- Übergangszeile -->
+  <section id="between">
+    <div class="lead">and somewhere in between it could be you!</div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- BILD 3 – Einladung + Start  -->
+  <!-- ============================ -->
+  <section id="invite">
+    <p class="start-blurb">
+      This interactive journey invites you to explore the spectrum of human personality.
+      Along the way, you’ll discover surprising patterns and break common stereotypes
+    </p>
+    <button class="btn btn-start" id="btnStart">START</button>
+  </section>
+
+  <!-- ============================ -->
+  <!-- QUIZ – 7 FRAGEN (hart codiert) -->
+  <!-- ============================ -->
+  <section id="quiz">
+    <div class="quiz-wrap">
+      <div class="center kicker">Quiz</div>
+
+      <!-- 1) Social events (Slider) => Social_event_attendance -->
+      <div class="q-card">
+        <div class="q-title">How often do you go on social events</div>
+        <div class="range-wrap">
+          <!-- nur der farbige Balken.svg als Hintergrund -->
+          <div class="range-bg" aria-hidden="true"></div>
+          <input class="range-input"
+                 type="range" min="0" max="10" step="1"
+                 data-key="Social_event_attendance" />
+          <div class="value-bubble" data-bubble="Social_event_attendance"></div>
+        </div>
+      </div>
+
+      <!-- 2) Going outside (Slider) => Going_outside -->
+      <div class="q-card">
+        <div class="q-title">How often do you go outside</div>
+        <div class="range-wrap">
+          <div class="range-bg" aria-hidden="true"></div>
+          <input class="range-input"
+                 type="range" min="0" max="7" step="1"
+                 data-key="Going_outside" />
+          <div class="value-bubble" data-bubble="Going_outside"></div>
+        </div>
+      </div>
+
+      <!-- 3) Time spent alone (Slider) => Time_spent_Alone -->
+      <div class="q-card">
+        <div class="q-title">How much time do you spend alone (per day)</div>
+        <div class="range-wrap">
+          <div class="range-bg" aria-hidden="true"></div>
+          <input class="range-input"
+                 type="range" min="0" max="11" step="1"
+                 data-key="Time_spent_Alone" />
+          <div class="value-bubble" data-bubble="Time_spent_Alone"></div>
+        </div>
+      </div>
+
+      <!-- 4) Friends circle size (Slider) => Friends_circle_size -->
+      <div class="q-card">
+        <div class="q-title">How big is your friends circle</div>
+        <div class="range-wrap">
+          <div class="range-bg" aria-hidden="true"></div>
+          <input class="range-input"
+                 type="range" min="0" max="15" step="1"
+                 data-key="Friends_circle_size" />
+          <div class="value-bubble" data-bubble="Friends_circle_size"></div>
+        </div>
+      </div>
+
+      <!-- 5) Post frequency (Slider) => Post_frequency -->
+      <div class="q-card">
+        <div class="q-title">How often do you post on social media</div>
+        <div class="range-wrap">
+          <div class="range-bg" aria-hidden="true"></div>
+          <input class="range-input"
+                 type="range" min="0" max="10" step="1"
+                 data-key="Post_frequency" />
+          <div class="value-bubble" data-bubble="Post_frequency"></div>
+        </div>
+      </div>
+
+      <!-- 6) Stage fear (Yes/No) => Stage_fear -->
+      <div class="q-card">
+        <div class="q-title">Do you have stage fear</div>
+        <div class="q-actions">
+          <button class="btn-pill btn-yes" data-key="Stage_fear" data-v="Yes">YES</button>
+          <button class="btn-pill btn-no"  data-key="Stage_fear" data-v="No">NO</button>
+        </div>
+      </div>
+
+      <!-- 7) Drained after socializing (Yes/No) => Drained_after_socializing -->
+      <div class="q-card">
+        <div class="q-title">Do you feel drained after socializing</div>
+        <div class="q-actions">
+          <button class="btn-pill btn-yes" data-key="Drained_after_socializing" data-v="Yes">YES</button>
+          <button class="btn-pill btn-no"  data-key="Drained_after_socializing" data-v="No">NO</button>
+        </div>
+      </div>
+
+      <div class="center">
+        <button id="btnFinish" class="btn btn-start">FERTIG – ZUR AUSWERTUNG</button>
+      </div>
+      <div class="center muted" style="margin-top:10px">
+        (Datensatz: <strong>personality_datasert.csv</strong>)
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- ERGEBNISSE (wie Bild 5/6)   -->
+  <!-- ============================ -->
+  <section id="results">
+    <div class="headline">
+      <div class="kicker">this is you!</div>
+      <div class="muted">Let’s see how you are keeping up with other people</div>
+    </div>
+
+    <!-- me.svg ohne Hintergrund -->
+    <img id="meAvatarTop" class="me-avatar" src="me.svg" alt="Dein Avatar" />
+
+    <!-- Anordnung mit Lücke (Bild 5) -->
+    <div id="gridInitial" class="grid-wrap">
+      <div class="row row-1">
+        <div class="av"><img src="person_3.svg" alt="person 3" /></div>
+        <div class="av"><img src="person_7.svg" alt="person 7" /></div>
+        <div class="av"><img src="person_2.svg" alt="person 2" /></div>
+        <div class="gap-cell"></div>
+        <div class="av"><img src="person_5.svg" alt="person 5" /></div>
+        <div class="av"><img src="person_9.svg" alt="person 9" /></div>
+        <div class="av"><img src="person_4.svg" alt="person 4" /></div>
+      </div>
+      <div class="row row-2">
+        <div class="av"><img src="person_1.svg" alt="person 1" /></div>
+        <div class="av"><img src="person_4.svg" alt="person 4" /></div>
+        <div class="av"><img src="person_6.svg" alt="person 6" /></div>
+        <div class="av"><img src="person_10.svg" alt="person 10" /></div>
+        <div class="av"><img src="person_2.svg" alt="person 2" /></div>
+        <div class="av"><img src="person_8.svg" alt="person 8" /></div>
+        <div class="av"><img src="person_3.svg" alt="person 3" /></div>
+      </div>
+      <div class="row row-3">
+        <div class="av"><img src="person_7.svg" alt="person 7" /></div>
+        <div class="av"><img src="person_1.svg" alt="person 1" /></div>
+        <div class="av"><img src="person_4.svg" alt="person 4" /></div>
+        <div class="av"><img src="person_6.svg" alt="person 6" /></div>
+        <div class="av"><img src="person_10.svg" alt="person 10" /></div>
+        <div class="av"><img src="person_5.svg" alt="person 5" /></div>
+        <div class="av"><img src="person_8.svg" alt="person 8" /></div>
+      </div>
+    </div>
+
+    <!-- Gleiche Anordnung – eingefärbt; me.svg füllt Slot links/rechts (Bild 6) -->
+    <div id="gridColored" class="grid-wrap" style="display:none">
+      <div class="row row-1">
+        <div class="av"><img src="person_3.svg" alt="person 3" /></div>
+        <div class="av"><img src="person_7.svg" alt="person 7" /></div>
+        <div class="av"><img src="person_2.svg" alt="person 2" /></div>
+        <div id="slot-left" class="av no-bg" style="display:none"></div>
+        <div class="av"><img src="person_5.svg" alt="person 5" /></div>
+        <div class="av"><img src="person_9.svg" alt="person 9" /></div>
+        <div class="av"><img src="person_4.svg" alt="person 4" /></div>
+      </div>
+      <div class="row row-2">
+        <div class="av"><img src="person_1.svg" alt="person 1" /></div>
+        <div class="av"><img src="person_4.svg" alt="person 4" /></div>
+        <div class="av"><img src="person_6.svg" alt="person 6" /></div>
+        <div class="av"><img src="person_10.svg" alt="person 10" /></div>
+        <div class="av"><img src="person_2.svg" alt="person 2" /></div>
+        <div class="av"><img src="person_8.svg" alt="person 8" /></div>
+        <div class="av"><img src="person_3.svg" alt="person 3" /></div>
+      </div>
+      <div class="row row-3">
+        <div class="av"><img src="person_7.svg" alt="person 7" /></div>
+        <div class="av"><img src="person_1.svg" alt="person 1" /></div>
+        <div class="av"><img src="person_4.svg" alt="person 4" /></div>
+        <div class="av"><img src="person_6.svg" alt="person 6" /></div>
+        <div class="av"><img src="person_10.svg" alt="person 10" /></div>
+        <div class="av"><img src="person_5.svg" alt="person 5" /></div>
+        <div class="av"><img src="person_8.svg" alt="person 8" /></div>
+      </div>
+      <div id="slot-right" class="av no-bg" style="display:none"></div>
+    </div>
+
+    <p class="est-copy">
+      It is estimated that 65% to 75% of our population is extroverted and the other 30% is introverted.
+    </p>
+  </section>
+
+  <!-- Vergleiche pro Frage (dynamisch erzeugt – wie Bild 7) -->
+  <section id="comparisons">
+    <div class="center kicker">Your answers compared with everyone else</div>
+    <div id="compareContainer"></div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="app.js"></script>
+</body>
+</html>
